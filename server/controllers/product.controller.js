@@ -13,7 +13,7 @@ module.exports = {
     },
     showProductDetail(req, res){
         Product.findById(req.params.id)
-            .then()
-            .catch()
-    }
+            .then((productDetail) => res.json({detail: productDetail}))
+            .catch((err) => res.json({message: "error finding detail of one product", error: err}))
+    },
 }
