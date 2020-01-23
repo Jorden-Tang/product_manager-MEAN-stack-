@@ -10,5 +10,10 @@ module.exports = {
         Product.find()
             .then((allProducts)=> res.json({allProducts: allProducts}))
             .catch((err) => res.json({message: "error getting all products", error: err}))
+    },
+    showProductDetail(req, res){
+        Product.findById(req.params.id)
+            .then()
+            .catch()
     }
 }
