@@ -21,4 +21,9 @@ module.exports = {
         .then((product) => res.json(product))
         .catch((err) => res.json({message: "error updating product", error: err}))
     },
+    deleteProduct(req, res){
+        Product.deleteOne({_id: req.params.id}, (err) =>{
+            res.json({message: "error updating product", error: err});
+        })
+    }
 }
