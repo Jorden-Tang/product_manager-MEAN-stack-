@@ -16,4 +16,9 @@ module.exports = {
             .then((productDetail) => res.json({detail: productDetail}))
             .catch((err) => res.json({message: "error finding detail of one product", error: err}))
     },
+    updateProduct(req, res){
+        Product.findOneAndUpdate({_id: req.params.id}, req.body)
+        .then((product) => res.json(product))
+        .catch((err) => res.json({message: "error updating product", error: err}))
+    },
 }
